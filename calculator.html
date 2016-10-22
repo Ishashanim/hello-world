@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="jquery-3.1.1.js"></script>
+    <script charset='utf-8' src='calculator.js'></script>
+
+
+    <style >
+        .row{
+            display: flex;
+
+        }
+
+        .whole{
+            background-color: rgba(170,200,240,1);
+            width:450px;
+            margin-left: 400px;
+            height: 350px;
+            border-radius: 10px;
+            padding: 1px;
+            margin-top: 200px;
+        }
+        .calc{
+            margin-top: 100px;
+            margin-left: 20px;
+        }
+        .inp{
+            margin-top:-25px;
+            margin-left:40px;
+            position: absolute;
+        }
+        .row *{
+            margin-left: 10px;
+            margin-top: 10px;
+            border-radius: 10px;
+
+
+        }
+        .row{
+            margin-left:0px;
+            margin-top: -10px
+        }
+        .up{
+            margin-top: 30px;
+            margin-left: 60px;
+        }
+        .flx{
+            display: flex;
+            margin-top: 20px;
+
+        }
+        #clr{
+            cursor: pointer;
+            box-shadow: 0 7px  rgba(150,150,220,1);
+            outline: none;
+            border: none;
+        }
+        #clr:active {
+            background-color: blue;
+            box-shadow: 0 2px rgba(150,150,220,1);
+            transform: translateY(4px);
+        }
+        #clr:hover{
+            background-color: blue;
+
+        }
+        #clr2{
+            cursor: pointer;
+            outline: none;
+            border: none;
+            box-shadow: 0 7px rgba(150,150,220,1);
+            background-color:rgba(250,230,230,1);
+        }
+        #clr2:hover{
+            background-color: blue;
+        }
+        #clr2:active {
+            background-color: blue;
+            box-shadow: 0 2px rgba(150,150,220,1);
+            transform: translateY(4px);
+        }
+        #clr3{outline: none;
+            border: none;
+            cursor: pointer;
+            background-color:rgba(150,250,150,1);
+            box-shadow: 0 7px rgba(130,240,130,1);
+        }
+        #clr3:hover{
+            background-color:rgba(120,220, 120, 1);
+        }
+        #clr3:active {
+            background-color: rgba(120,220,120,1);
+            box-shadow: 0 2px rgba(130,240,130,1);
+            transform: translateY(4px);
+        }
+
+        #clr4{ cursor: pointer;
+            outline: none;
+            border-radius: 10px;
+            border: none;
+            background-color:rgba(250,130,130,1);
+            box-shadow: 0 7px rgba(250,120,120,1);
+        }
+        #clr4:hover{
+            background-color:rgba(240,110,110,1);
+        }
+        #clr4:active {
+            background-color: rgba(240,110,110,1);
+            box-shadow: 0 2px rgba(240,110,110,1);
+            transform: translateY(4px);
+        }
+        @-webkit-keyframes myanim{
+            0%{
+                margin-top:0px;
+                box-shadow: 0.2em  1em 0em -0.7em rgba(150,150,220,1);
+            }
+            50%{
+                margin-top:20px;
+                box-shadow:0px 0px 0px 0px;
+            }
+            100%{
+                margin-top: 0px;
+                box-shadow: 0.2em  1em 0em -0.7em rgba(150,150,220,1);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="whole">
+    <audio id="sound1" src="click.WAV"></audio>
+
+
+
+
+
+    <div class="inp">
+
+        <div class="up">
+
+
+            <input type="text" name="name" value=" " size="20" id="output" style="margin-left:120px;background-color:grey;color:white;font-size:15px">
+        </div>
+
+        <div class="flx">
+
+
+            <div class="c">
+
+                <input type="button" name="name" value="C" size="20" id="clr4" onclick="setc()" style="height:50px;width:80px;color:white" ></div>
+            &nbsp; &nbsp;  &nbsp;<input type="text" name="name" value=" " size="23" id="input" style="background-color:grey;color:white;font-size:20px">
+        </div>
+    </div>
+
+
+    <div class="calc">
+        <div class="row">
+            <div class="seven">
+
+                <input type="button" name="name" value="7"  onclick="setvalue(7)"  id="clr"  style="height:50px;width:80px"></div>
+            <div class="eight">
+
+                <input type="button" name="name" value="8" onclick="setvalue(8)" id="clr" style="height:50px;width:80px">  </div>
+            <div class="nine">
+
+                <input type="button" name="name" value="9" onclick="setvalue(9)" id="clr" style="height:50px;width:80px">  </div>
+            <div class="mult">
+                <input type="button" name="name" value="+"  onclick="setop('+')" id="clr2"
+                       style="height:50px;width:80px">
+            </div>
+        </div>
+        <div class="row">
+            <div class="our">
+
+                <input type="button" name="name" value="4" size="20" onclick="setvalue(4)" id="clr" style="height:50px;width:80px"></div>
+            <div class="five">
+
+                <input type="button" name="name" value="5" onclick="setvalue(5)" id="clr" style="height:50px;width:80px">  </div>
+            <div class="six">
+
+                <input type="button" name="name" value="6" onclick="setvalue(6)" id="clr" style="height:50px;width:80px">  </div>
+            <div class="mult">
+                <input type="button" name="name" value="-" onclick="setop('-')" id="clr2"
+                       style="height:50px;width:80px">
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="one">
+
+                <input type="button" name="name" value="1" size="20" onclick="setvalue(1)" id="clr" style="height:50px;width:80px"></div>
+            <div class="two">
+
+                <input type="button" name="name" value="2"onclick="setvalue(2)" id="clr" style="height:50px;width:80px">  </div>
+            <div class="three">
+
+                <input type="button" name="name" value="3" onclick="setvalue(3)" id="clr" style="height:50px;width:80px">  </div>
+
+
+            <div class="mult">
+                <input type="button" name="name" value="/" id="clr2" onclick="setop('/')"
+                       style="height:50px;width:80px">
+            </div></div>
+        <div class="row">
+
+            <div class="0">
+
+                <input type="button" name="name" value="0"  onclick="setvalue(0)" id="clr" style="height:50px;width:80px">  </div>
+            <div class="=">
+                <input type="button" name="name" value="."  onclick="setvalue('.')" id="clr" style="height:50px;width:80px">  </div>
+            <div class="=">
+
+                <input type="button" name="name" value="=" onclick="give()"  id="clr3" style="height:50px;width:80px">  </div>
+
+
+            <div class="mult">
+                <input type="button" name="name" value="*" onclick="setop('*')" id="clr2"
+                       style="height:50px;width:80px">
+            </div></div>
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
